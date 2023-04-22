@@ -50,7 +50,7 @@ const validationSchema = [
 const onSubmit = (formData) => {
     form.transform(data => ({
         ...data,
-    })).post(route('products.store'), {
+    })).patch(route('products.update',{product:props.data.product.data.id}), {
         onSuccess: () => {
             form.reset()
 
