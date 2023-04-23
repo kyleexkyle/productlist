@@ -160,7 +160,7 @@ const resetFilters = () => {
                                 {{ product.name }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ product.description }}
+                                <span v-html="product.description"></span>
                             </td>
                             <td class="px-6 py-4">
                                 {{ product.category.name }}

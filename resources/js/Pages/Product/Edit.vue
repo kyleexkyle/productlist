@@ -9,6 +9,7 @@ import FormWizard from '@/Components/FormWizard.vue';
 import FormStep from '@/Components/FormStep.vue';
 import Swal from "sweetalert2";
 import {Head, Link, useForm } from '@inertiajs/vue3';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const props = defineProps({
     data : {
@@ -16,6 +17,8 @@ const props = defineProps({
         required: true
     }
 });
+
+const editor = ClassicEditor;
 
 const form = useForm({
     name: props.data.product.data.name,
@@ -97,7 +100,7 @@ const onSubmit = (formData) => {
                     <FormWizard class="space-y-4"
                                 :validation-schema="validationSchema"
                                 @submit="onSubmit">
-                        <FormStep class="flex space-x-2">
+                        <FormStep class="flex flex-col space-y-4">
 
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
@@ -129,20 +132,18 @@ const onSubmit = (formData) => {
                                         <ErrorMessage name="category" />
                                     </p>
                                 </div>
+                            </div>
 
-                                <div>
-                                    <InputLabel for="title" value="Product Description" />
-                                    <Field class="shadow-sm px-2 rounded-lg"
-                                           v-model="form.description"
-                                           name="description"
-                                           as="textarea"
-                                           placeholder="Product Description" />
+                            <div>
+                                <InputLabel for="title" value="Product Description" />
 
-                                    <p class="text-sm text-red-500">
-                                        <ErrorMessage name="description" />
-                                    </p>
-                                </div>
+                                <Field name="description" v-model="form.description">
+                                    <ckeditor :editor="editor" v-model="form.description"></ckeditor>
+                                </Field>
 
+                                <p class="text-sm text-red-500">
+                                    <ErrorMessage name="description" />
+                                </p>
                             </div>
 
                         </FormStep>
