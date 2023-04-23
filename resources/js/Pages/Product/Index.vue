@@ -186,7 +186,8 @@ const resetFilters = () => {
         </div>
     </AuthenticatedLayout>
 
-    <div class="text-red-800 bg-red-300 text-green-800 bg-green-300">
+    <div class="text-red-800 bg-red-300 text-green-800
+    bg-green-300 underline animate-ping">
 
     </div>
 </template>

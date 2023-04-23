@@ -9,10 +9,6 @@
 8. npm run dev (compile for development) OR npm run build (compile for production)
 
 
-##todo 
-
-save file uploaded to local storage
-wysewyg editor for description
-
-bonus video app
+##todo
+wysiwyg editor for description - done
 

@@ -31,7 +31,7 @@ class ProductController extends Controller
                 $query->where('name', 'like', "%{$search}%")
                     ->orWhere('description', 'like', "%{$search}%");
             })
-            ->orderBy('created_at','desc')
+            ->orderBy('date_and_time','desc')
             ->paginate(15)
             ->withQueryString();
 
